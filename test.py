@@ -4,7 +4,7 @@ import random
 import requests
 from bs4 import BeautifulSoup
 import csv
-
+import sys
 
 
 count = 0
@@ -81,7 +81,7 @@ if __name__ == '__main__':
         with open('results.txt','w',encoding='utf-8',newline='') as f:
             fw = csv.writer(f)            
             start_url = "http://dict.youdao.com/search?q="
-            url_list = get_url_list(start_url,"./majun.txt")
+            url_list = get_url_list(start_url,sys.argv[1])
             print("开始爬取")
             get_data(url_list,fw)
     finally:
