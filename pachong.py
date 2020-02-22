@@ -66,7 +66,11 @@ def get_data(url_list, fw):
             except:
                 pass           
             if(not translation):
-                translation.append(word)
+                with open('noresults.txt','w',encoding='utf-8',newline='') as f1:
+                    f1.write(word)
+                    print(count)
+                    count+=1
+                    continue
             print(count)
             count+=1
             fw.writerow([word,translation])
