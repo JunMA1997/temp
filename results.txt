@@ -1,0 +1,2 @@
+马上,"['immediately', 'right away']","['adv.', 'misc.']"
+打,"['dozen', 'fight', 'hit']","['n.', 'vi.', 'vt.']"

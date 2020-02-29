@@ -56,11 +56,11 @@ def get_data(url_list, fw):
             
             
             translation=[]
-
+            tag=[]
             try:
-                for byGroup in soup.find('div',class_="trans-wrapper clearfix").find('div',class_="trans-container").find_all('p'):                                    
-                    for t in byGroup.find_all("a",class_="search-js"):
-                        translation.append(t.get_text())
+                for byGroup in soup.find('div',class_="trans-wrapper clearfix").find('div',class_="trans-container").find_all('p'):
+                    tag.append(byGroup.find_all("span")[0].get_text())    
+                    translation.append(byGroup.find("a",class_="search-js").get_text())
                     
                 # 获取翻译
             except:
@@ -73,7 +73,7 @@ def get_data(url_list, fw):
                     continue
             print(count)
             count+=1
-            fw.writerow([word,translation])
+            fw.writerow([word,translation,tag])
             
         print("爬取完毕")
     finally:
